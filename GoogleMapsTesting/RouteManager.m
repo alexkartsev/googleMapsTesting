@@ -18,6 +18,7 @@
 @implementation RouteManager
 
 static NSString *kDirectionsURL = @"https://maps.googleapis.com/maps/api/directions/json?";
+static NSString *kKey = @"AIzaSyASl8LH8r0EPawmoz9qrDoyg_M7IBP-hI4";
 
 + (instancetype)sharedManager {
     
@@ -49,7 +50,7 @@ static NSString *kDirectionsURL = @"https://maps.googleapis.com/maps/api/directi
      [NSString stringWithFormat:@"%f,%f",startPosition.latitude, startPosition.longitude], @"origin",
      [NSString stringWithFormat:@"%f,%f",endPosition.latitude, endPosition.longitude], @"destination",
      mode, @"mode",
-     @"AIzaSyASl8LH8r0EPawmoz9qrDoyg_M7IBP-hI4", @"key", nil];
+     kKey, @"key", nil];
     [self.sessionManager GET:kDirectionsURL
                   parameters:params
                     progress:nil
